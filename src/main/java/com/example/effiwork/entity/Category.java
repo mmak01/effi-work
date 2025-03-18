@@ -1,35 +1,38 @@
 package com.example.effiwork.entity;
 
 import java.time.LocalDateTime;
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * メモエンティティ
+ * 分類エンティティ
  * 
  */
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class memos {
-
-	/** メモID */
-	@Id
-	private String memoId;
-
-	/** ユーザーID */
-	private String userId;
+@Entity
+@Table(name = "categories")
+public class Category {
 
 	/** 分類ID */
+	@Id
 	private Integer categoryId;
 
-	/** タイトル */
-	private String title;
+	/** ユーザーID */
+	@Column(name="user_id",columnDefinition = "CHAR(4)")
+	private String userId;
 
-	/** メモ詳細 */
-	private String details;
+	/** 分類名称 */
+	private String categoryName;
+
+	/** 分類色 */
+	private String color;
 
 	/** 作成日時 */
 	private LocalDateTime createdAt;

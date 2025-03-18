@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>ログイン</title>
+</head>
+<body>
+    <h2>ログイン</h2>
+    
+    <form th:action="@{/auth/login}" method="post">
+        <label>Email:</label>
+        <input type="text" name="email" required />
+
+        <label>Password:</label>
+        <input type="password" name="password" required />
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p th:if="${param.error}" style="color: red;">Invalid email or password</p>
+    <p th:if="${param.logout}" style="color: green;">You have been logged out</p>
+
+    <p>Don't have an account? <a th:href="@{/auth/signup}">Sign Up</a></p>
+</body>
+</html>

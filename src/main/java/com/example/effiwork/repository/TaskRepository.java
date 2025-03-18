@@ -1,8 +1,8 @@
 package com.example.effiwork.repository;
 
-import com.example.effiwork.entity.Tasks;
-import org.springframework.data.repository.CrudRepository;
+import com.example.effiwork.entity.Task;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TaskRepository extends CrudRepository<Tasks, String> {
+public interface TaskRepository extends JpaRepository<Task, String> {
 
 }
