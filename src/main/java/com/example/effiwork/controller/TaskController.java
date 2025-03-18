@@ -3,7 +3,7 @@
  */
 package com.example.effiwork.controller;
 
-import com.example.effiwork.entity.Tasks;
+import com.example.effiwork.entity.Task;
 import com.example.effiwork.repository.TaskRepository;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -28,11 +28,11 @@ public class TaskController {
 	@GetMapping
 	public String index(Model model) {
 		
-		Iterable<Tasks> taskList = taskRepository.findAll();
+		Iterable<Task> taskList = taskRepository.findAll();
 		
         // FullCalendar用のイベントデータリストを作成
         List<Map<String, Object>> tasksJson = new ArrayList<>();
-		for(Tasks task : taskList) {
+		for(Task task : taskList) {
 			Map<String, Object> event = new HashMap<>();
 			event.put("title", task.getTitle());
 			event.put("startOn", task.getStartOn());
