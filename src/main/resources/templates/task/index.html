@@ -2,9 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link rel="stylesheet" th:href="@{/common/css/app.css}" />
+	<!-- headを挿入 -->
+	<div th:insert="~{common/head :: head}"></div>
 </head>
 
 <body>
@@ -14,9 +14,12 @@
 	<main>
 		<div>
 			<h2>タスク</h2>
-			<p>This is the main content area.</p>
+			<p class = "text-primary">This is the main content area.</p>
 		</div>
 	</main>
+
+	<!-- bootstrap -->
+	<div th:insert="~{common/script :: script}"></div>
 
 	<!-- フッターを挿入 -->
 	<div th:insert="~{common/footer :: footer}"></div>
