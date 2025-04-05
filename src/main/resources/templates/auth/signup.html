@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Sign Up</title>
+    <title>新規登録</title>
     <link rel="stylesheet" th:href="@{/css/style.css}" />
 </head>
 <body>
-    <h2>Sign Up</h2>
+    <h2>新規登録</h2>
     
-    <form th:action="@{/signup}" method="post" th:object="${user}">
+    <form th:action="@{/auth/signup/register}" method="post" th:object="${user}">
         <label>メールアドレス:</label>
         <input type="email" th:field="*{email}" required />
 
@@ -21,6 +21,6 @@
     </form>
 
     <p th:if="${error}" th:text="${error}" style="color: red;"></p>
-    <p>Already have an account? <a th:href="@{/login}">Sign In</a></p>
+    <p>Already have an account? <a th:href="@{/auth/login}">ログイン画面へ</a></p>
 </body>
 </html>
