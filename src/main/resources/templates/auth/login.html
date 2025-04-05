@@ -6,19 +6,19 @@
 <body>
     <h2>ログイン</h2>
     
-    <form th:action="@{/auth/login}" method="post">
-        <label>Email:</label>
+    <form th:action="@{/auth/doLogin}" method="post">
+        <label>Eメール:</label>
         <input type="text" name="email" required />
 
-        <label>Password:</label>
+        <label>パスワード:</label>
         <input type="password" name="password" required />
 
-        <button type="submit">Login</button>
+        <button type="submit">ログイン</button>
     </form>
 
     <p th:if="${param.error}" style="color: red;">Invalid email or password</p>
     <p th:if="${param.logout}" style="color: green;">You have been logged out</p>
 
-    <p>Don't have an account? <a th:href="@{/auth/signup}">Sign Up</a></p>
+    <p>Don't have an account? <a th:href="@{/auth/signup}">新規登録</a></p>
 </body>
 </html>

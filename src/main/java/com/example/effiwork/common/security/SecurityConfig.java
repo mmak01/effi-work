@@ -16,18 +16,18 @@ public class SecurityConfig {
 		http.csrf(csrf -> csrf.disable()) // TODO CSRFを一時的に無効化（開発・テスト）
 				.authorizeHttpRequests(
 						authz -> authz.requestMatchers("/css/**", "/js/**", "/img/**").permitAll() // 認証不要
-								.requestMatchers("/", "/auth/login", "/signup").permitAll() // 認証不要
+								.requestMatchers("/", "/auth/login", "/auth/signup").permitAll() // 認証不要
 								.anyRequest().authenticated())
 				.formLogin(login -> login
 						.loginPage("/auth/login") // ログインページ
-						.loginProcessingUrl("/auth/login") // ログイン成功後リダイレクト先
+						.loginProcessingUrl("/auth/doLogin") // ログイン成功後リダイレクト先
 						.failureUrl("/login?error=true") // エラー時のリダイレクト
-						.defaultSuccessUrl("/home", true) // ログイン成功後のリダイレクト先
-						.usernameParameter("username") // ユーザー名フィールドのname
+						.defaultSuccessUrl("/user", true) // ログイン成功後のリダイレクト先
+						.usernameParameter("email") // ユーザー名フィールドのname
 						.passwordParameter("password") // パスワードフィールドのname
 				).logout(logout -> logout
 						.logoutRequestMatcher(new AntPathRequestMatcher("/logout")) // ログアウトリクエストのURLパターン
-						.logoutSuccessUrl("/home") // ログアウト成功後のリダイレクト先
+						.logoutSuccessUrl("/auth/login") // ログアウト成功後のリダイレクト先
 						.invalidateHttpSession(true) // ログアウト時にHTTPセッション無効化
 						.deleteCookies("JSESSIONID") // 特定のクッキー削除
 				);

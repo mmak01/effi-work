@@ -48,7 +48,7 @@ public class Task {
 	private LocalDate  endOn;
 
 	/** 完了フラグ */
-	private Integer completed;
+	private Boolean completed;
 
 	/** 作成日時 */
 	private LocalDateTime createdAt;

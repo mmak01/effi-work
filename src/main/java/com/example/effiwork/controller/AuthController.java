@@ -3,8 +3,6 @@
  */
 package com.example.effiwork.controller;
 
-import com.example.effiwork.entity.User;
-import com.example.effiwork.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +10,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.effiwork.entity.User;
+import com.example.effiwork.service.UserService;
+
 /**
- * サインアップコントローラ
+ * 認証コントローラ
  */
 @Controller
 @RequestMapping("/auth")
@@ -49,7 +50,7 @@ public class AuthController {
 	 * ユーザー登録
 	 * 
 	 */
-	@PostMapping("/signup")
+	@PostMapping("/signup/register")
 	public String registerUser(@ModelAttribute User user, Model model) {
 		try {
 			userService.registerUser(user.getEmail(), user.getUsername(), user.getPassword());
